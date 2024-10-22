@@ -10,7 +10,7 @@ import no.hvl.dat100ptc.TODO;
 
 public class GPSComputer {
 
-    private GPSPoint[] gpspoints;
+    private static GPSPoint[] gpspoints;
 
     public GPSComputer(String filename) {
 
@@ -63,7 +63,7 @@ public class GPSComputer {
 
 
 
-    public double[] speeds() {
+    public static double[] speeds() {
         double[] speeds = new double[gpspoints.length - 1];
 
         for (int i = 0; i < gpspoints.length - 1; i++) {
@@ -81,7 +81,7 @@ public class GPSComputer {
     }
 
 
-    public double averageSpeed() {
+    public static double averageSpeed() {
         double totalDistance = 0;
         int totalTime = 0;
 
@@ -151,7 +151,7 @@ public class GPSComputer {
         double totalKcal = totalKcal(WEIGHT);
 
         System.out.println("==============================================");
-        System.out.printf("Total Time     :   %02d:%02d:%02d\n", totalTime / 3600, (totalTime % 3600) / 60, totalTime % 60);
+        System.out.printf("Total Time     :     %02d:%02d:%02d\n", totalTime / 3600, (totalTime % 3600) / 60, totalTime % 60);
         System.out.printf("Total distance :   %10.2f km\n", totalDistance);
         System.out.printf("Total elevation:   %10.2f m\n", totalElevation);
         System.out.printf("Max speed      :   %10.2f km/h\n", maxSpeed);
